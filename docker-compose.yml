@@ -1,0 +1,17 @@
+services:
+    postgres:
+      image: postgres
+      restart: always
+      shm_size: 128mb
+      ports:
+        - 5432:5432
+      volumes:
+        - postgres_data_1:/var/lib/postgresql/data
+      environment:
+        POSTGRES_USER: docker
+        POSTGRES_PASSWORD_FILE: /secrets/pg_password
+        POSTGRES_DB: db_data
+
+volumes:
+  postgres_data_1:
+  
